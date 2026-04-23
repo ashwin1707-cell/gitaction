@@ -41,7 +41,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             sudo rm -rf /opt/tomcat/webapps/JAVA*
-            sudo mv /home/ec2-user/deploy-temp/*.war /opt/tomcat/webapps/JAVA.war
+            sudo mv /home/ec2-user/deploy-temp/*.war /var/lib/tomcat10/webapps/JAVA.war
 
             # restart tomcat (depends on your setup)
-            sudo systemctl restart tomcat || sudo /opt/tomcat/bin/shutdown.sh && sudo /opt/tomcat/bin/startup.sh
+            sudo systemctl restart tomcat10 
